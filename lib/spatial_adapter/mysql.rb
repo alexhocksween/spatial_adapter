@@ -49,7 +49,7 @@ module ActiveRecord::ConnectionAdapters
     end
   end
 
-  class SpatialMysqlColumn < MysqlColumn
+  class SpatialMysqlColumn < MysqlAdapter::Column
     include SpatialAdapter::SpatialColumn
     extend SpatialAdapter::Base::Mysql::SpatialColumn
   end
