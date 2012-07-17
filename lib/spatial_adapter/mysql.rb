@@ -16,7 +16,7 @@ module ActiveRecord::ConnectionAdapters
           if field[1] =~ GEOMETRY_REGEXP
             ActiveRecord::ConnectionAdapters::SpatialMysqlColumn
           else
-            ActiveRecord::ConnectionAdapters::MysqlAdapter::Column
+            ActiveRecord::ConnectionAdapters::MysqlAdapter::Column # update for new version of driver
           end
         columns << klass.new(field[0], field[4], field[1], field[2] == "YES")
       end
@@ -51,6 +51,6 @@ module ActiveRecord::ConnectionAdapters
 
   class SpatialMysqlColumn < MysqlAdapter::Column
     include SpatialAdapter::SpatialColumn
-    extend SpatialAdapter::Base::Mysql::SpatialColumn
+    extend SpatialAdapter::Base::Mysql::SpatialColumn # update for new version of driver
   end
 end
