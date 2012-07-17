@@ -16,7 +16,7 @@ module ActiveRecord::ConnectionAdapters
           if field[1] =~ GEOMETRY_REGEXP
             ActiveRecord::ConnectionAdapters::SpatialMysqlColumn
           else
-            ActiveRecord::ConnectionAdapters::MysqlColumn
+            ActiveRecord::ConnectionAdapters::MysqlAdapter::Column
           end
         columns << klass.new(field[0], field[4], field[1], field[2] == "YES")
       end
